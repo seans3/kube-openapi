@@ -112,6 +112,7 @@ type Blah struct {
 	// +k8s:openapi-gen=x-kubernetes-member-tag:member_test
 	WithExtension string
 	// a member with struct tag as extension
+    // +listAttribute=atomic
 	// +patchStrategy=ps
 	// +patchMergeKey=pmk
 	WithStructTagExtension string `+"`"+`patchStrategy:"ps" patchMergeKey:"pmk"`+"`"+`
@@ -245,6 +246,7 @@ Format: "",
 "WithStructTagExtension": {
 VendorExtensible: spec.VendorExtensible{
 Extensions: spec.Extensions{
+"x-kubernetes-list-attribute": "atomic",
 "x-kubernetes-patch-merge-key": "pmk",
 "x-kubernetes-patch-strategy": "ps",
 },
